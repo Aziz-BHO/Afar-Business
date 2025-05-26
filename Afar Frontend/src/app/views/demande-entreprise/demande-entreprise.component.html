@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> List Demandes
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>status</th>
+            <th>approuvement</th>
+            <th>details</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of demandes" >
+            <td >{{c.id}} </td>
+            <td>{{c.entreprise.name}}</td>
+            <td><span *ngIf="c?.valid == true" class="text-success">already valid </span> <span *ngIf="c?.valid == false" class="text-danger">Not Valid </span> </td>
+            <td> {{c.status}} </td>
+
+            <td>
+              <button type="button" class="btn btn-primary btn-sm"    data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="myModal.show()" >
+                Détails
+              </button>
+            </td>
+
+          </tbody>
+        </table>
+
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Activate Entreprise</h4>
+
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>voulez vous accepter les modifications pour  l'entreprise   {{this.selectedRequest?.entreprise?.name}} ? </p>
+        <span class="text-info"> Anciennes Valeurs</span>
+        <table class="table table-bordered table-striped table-sm">
+
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>adress</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of demandes" >
+            <td >{{c.id}} </td>
+            <td>{{c.entreprise.name}}</td>
+            <td>{{c.entreprise.email}}</td>
+            <td>{{c.entreprise.phone}}</td>
+            <td>{{c.entreprise.adress}}</td>
+          </tbody>
+        </table>
+        <span class="text-info"> Nouvelles Valeurs</span>
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>adress</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of demandes" >
+            <td >{{c.id}} </td>
+            <td>{{c.modifiedEntreprise.name}}</td>
+            <td>{{c.modifiedEntreprise.email}}</td>
+            <td>{{c.modifiedEntreprise.phone}}</td>
+            <td>{{c.modifiedEntreprise.adress}}</td>
+          </tbody>
+        </table>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+        <button type="submit" class="btn btn-primary"  [disabled]="!this.selectedRequest?.valid == false" (click)="this.validate(this.selectedRequest?.id)" >Oui</button>
+        <button type="submit" class="btn btn-primary"   (click)="this.cancel(this.selectedRequest?.id)" >Cancel Request</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+

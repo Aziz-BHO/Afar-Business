@@ -1,0 +1,75 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Add Product</strong> Form
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="submitForm" (ngSubmit)="submit()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your product name" formControlName="name" required>
+                                    <div *ngIf="name.touched && name.invalid">
+                                        <small *ngIf="name.errors.required" class="text-danger">Product name is required<br></small>
+                                        <small *ngIf="name.errors.minlength" class="text-danger">Product name must contain two characters at least</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="number" class="form-control" placeholder="Enter the price" formControlName="price" required>
+                                    <div *ngIf="price.touched && price.invalid">
+                                        <small *ngIf="price.errors.required" class="text-danger">Price is required<br></small>
+                                        <small *ngIf="price.errors.min" class="text-danger">Minimum value is 10<br></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" class="form-control" placeholder="Enter some description" formControlName="desc" required>
+                                    <div *ngIf="desc.touched && desc.invalid">
+                                        <small *ngIf="desc.errors.required" class="text-danger">Description is required<br></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Discount Price per Points</label>
+                                    <input type="number" class="form-control" placeholder="Enter the Discount Price per Points" formControlName="discountPrice" required>
+                                    <div *ngIf="discountPrice.touched && discountPrice.invalid">
+                                        <small *ngIf="discountPrice.errors.required" class="text-danger">Discount Price per Points is required<br></small>
+                                        <small *ngIf="discountPrice.errors.min" class="text-danger">Minimum value is 10<br></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Discount Points</label>
+                                    <input type="number" class="form-control" placeholder="Enter Discount Points" formControlName="discountPoints" required>
+                                    <div *ngIf="discountPoints.touched && discountPoints.invalid">
+                                        <small *ngIf="discountPoints.errors.required" class="text-danger">Discount Points is required<br></small>
+                                        <small *ngIf="discountPoints.errors.min" class="text-danger">Minimum value is 10<br></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            
+                        <button type="submit" [disabled]="submitForm.invalid" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

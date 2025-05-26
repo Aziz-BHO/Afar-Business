@@ -1,0 +1,131 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Publicities list
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Points to earn</th>
+                <th>Video link</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pub of publicities">
+                <td>{{ pub.id }}</td>
+                <td>{{ pub.name }}</td>
+                <td>{{ pub.description }}</td>
+                <td>{{ pub.pointToEarn }}</td>
+                <td>
+                  <a href="{{ pub.videoLink }}" *ngIf="pub.videoLink">Click to watch</a>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal"
+                    (click)="getSelectedData(pub)" (click)="delModal.show()">
+                    Delete
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"
+                    (click)="uploadImage(pub)">
+                    upload video
+                  </button>
+                  <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#exampleModal"
+                    (click)="getSelectedData(pub)" (click)="myModal.show()">
+                    update
+                  </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #delModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Publicity</h4>
+        <button type="button" class="close" (click)="delModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Delete the selected publicity ?</p>
+        <button type="submit" class="btn btn-primary" (click)="deletePublicity()">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="delModal.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update Publicity</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>update publicity {{this.selectedPublicity?.id}}?</p>
+        <form [formGroup]="submitForm" (ngSubmit)="submit()">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter your publicity name" formControlName="name"
+                  required>
+                <div *ngIf="name.touched && name.invalid">
+                  <small *ngIf="name.errors.required" class="text-danger">Publicity name is required<br></small>
+                  <small *ngIf="name.errors.minlength" class="text-danger">Publicity name must contain two characters at
+                    least</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" placeholder="Enter some description" formControlName="desc"
+                  required>
+                <div *ngIf="desc.touched && desc.invalid">
+                  <small *ngIf="desc.errors.required" class="text-danger">Description is required<br></small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Points to Earn</label>
+                <input type="number" class="form-control" placeholder="Enter the points number to earn"
+                  formControlName="points" required>
+                <div *ngIf="points.touched && points.invalid">
+                  <small *ngIf="points.errors.required" class="text-danger">Points to Earn is required<br></small>
+                  <small *ngIf="points.errors.min" class="text-danger">Minimum value is 10<br></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <button type="submit" class="btn btn-primary" (click)="submit()">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

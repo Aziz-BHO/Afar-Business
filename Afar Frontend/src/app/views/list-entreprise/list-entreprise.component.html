@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> List Categories
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>email</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>status</th>
+            <th>Activer</th>
+            <th>delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of entreprises" >
+            <td >{{c.id}} </td>
+            <td>{{c.email}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.phone}}</td>
+            <td>{{c.status}}</td>
+
+
+            <td *ngIf="c.status == 'Desactive'" >
+              <button type="button" class="btn btn-primary btn-sm"    data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="myModal.show()" >
+                Activer
+              </button>
+            </td>
+
+            <td *ngIf="c.status == 'Active'" >
+              <button type="button" class="btn btn-primary btn-sm"    data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="desModal.show()" >
+                Desactiver
+              </button>
+
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="delModal.show()" >
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Activate Entreprise</h4>
+
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>voulez vous activer l'entreprise   {{this.selectedEntreprise?.name}} ? </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="delModal.hide()">Close</button>
+        <button type="submit" class="btn btn-primary"  (click)="this.activateEntreprise(this.selectedEntreprise?.id)" >Oui</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div bsModal #desModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Desactiver Entreprise</h4>
+
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>voulez vous desactiver l'entreprise  {{this.selectedEntreprise?.name}} ? </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="delModal.hide()">Close</button>
+        <button type="submit" class="btn btn-primary"  (click)="this.DesactivateEntreprise(this.selectedEntreprise?.id)" >Oui</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div bsModal #delModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Category</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>voulez-vous supprimer cet Category ?  {{this.selectedEntreprise?.name}} </p>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="delModal.hide()">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="this.delete()"  >Oui</button>
+        </div>
+      </div>
+
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> List Clients
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>cin</th>
+            <th>update</th>
+            <th>delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of clients" >
+            <td >{{c.id}} </td>
+            <td>{{c.firstName}}</td>
+            <td >{{c.lastName}} </td>
+            <td>{{c.email}}</td>
+            <td>{{c.phone}}</td>
+            <td>{{c.cin}}</td>
+
+
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="myModal.show()" >
+                update
+              </button>
+
+
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="getSelectedData(c)" (click)="delModal.show()" >
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Client</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Modifier le Client  {{this.selectedClient?.firstName}}</p>
+
+        <form [formGroup]="updateClientForm" (ngSubmit)="update()">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i> &nbsp;firstName</span>
+            </div>
+            <input type="text" class="form-control" placeholder="{{this.selectedClient?.firstName}}" autocomplete="EntrePrise Name" [ngModel]="this.selectedClient?.firstName" formControlName="firstName" required>
+
+
+          </div> <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i>&nbsp;lastName</span>
+            </div>
+            <input type="text" class="form-control" placeholder="{{this.selectedClient?.lastName}}" autocomplete="EntrePrise Name" [ngModel]="this.selectedClient?.lastName" formControlName="lastName" required>
+
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="{{this.selectedClient?.email}}" autocomplete="email" [ngModel]="this.selectedClient?.email" formControlName="email" required>
+
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-phone"></i>&nbsp;phone</span>
+            </div>
+            <input type="text"   class="form-control" name="phone" id="phone" class="form-control" placeholder="{{this.selectedClient?.phone}}" [ngModel]="this.selectedClient?.phone" formControlName="phone">
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user">&nbsp;CIN</i></span>
+            </div>
+            <input type="text"   class="form-control" name="phone" id="cin" class="form-control" placeholder="{{this.selectedClient?.cin}}" [ngModel]="this.selectedClient?.cin" formControlName="cin">
+
+          </div>
+
+          <button type="submit" class="btn btn-block btn-success" (click)="this.update()">update Account</button>
+
+        </form>
+
+      </div>
+
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div bsModal #delModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Client</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>voulez-vous supprimer cet Client ?  {{this.selectedClient?.name}} </p>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="delModal.hide()">Close</button>
+          <button type="submit" class="btn btn-primary"   (click)="delete()" >Oui</button>
+        </div>
+      </div>
+
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

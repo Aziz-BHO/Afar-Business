@@ -1,0 +1,1655 @@
+{
+	"info": {
+		"_postman_id": "ed0525ff-5c5c-41dd-9bcf-61b285fb9317",
+		"name": "Niw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "RegisterClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\": \"client12@niw.com\",\r\n    \"password\": \"client12\",\r\n    \"phone\": 29768899,\r\n    \"role\": \"client\",\r\n    \"firstName\": \"client1\",\r\n    \"lastName\": \"client1\",\r\n    \r\n    \"adress\": \"GHADI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/client/register",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClientUploadPhoto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3NDYyNTUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.nnv2_gIANVMBkf-EGJhdSEY3ne1aTBYm23iMlhMPQT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/hamza_bramli/Downloads/106448940_3510783215599764_6186571515195823862_n.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/uploadimage/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"uploadimage",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3NDYyNTUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.nnv2_gIANVMBkf-EGJhdSEY3ne1aTBYm23iMlhMPQT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/client",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3MzE3MzUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.yJ8_zsGbP-RagfQYebyzU7fgjbjMDNJZ2zulpBRgteY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/client/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/client/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"firstName\": \"hamza\",\r\n    \"lastName\": null,\r\n    \"email\": null,\r\n    \"password\": null,\r\n    \"phone\": null,\r\n    \"photo\": null,\r\n    \"commands\": null,\r\n    \"points\": null,\r\n    \"adress\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/client",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "RegisterAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\": \"admin1@niw.com\",\r\n    \"password\": \"admin1\",\r\n    \"phone\": null,\r\n    \"role\": \"admin\",\r\n    \"firstName\": \"admin1\",\r\n    \"lastName\": null,\r\n    \"adress\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/admin/register",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAbml3LmNvbSIsImV4cCI6MTYxOTcyOTk1OCwicm9sZXMiOiJhZG1pbiIsIlVzZXJfSWQiOjF9.N9khF8ec2drYYHK5pMa1Ggx3cxpKC3Ms8SrwQLZVFsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/admin",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/client/2",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/client/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"firstName\": \"hamza\",\r\n    \"lastName\": null,\r\n    \"email\": null,\r\n    \"password\": null,\r\n    \"phone\": null,\r\n    \"photo\": null,\r\n    \"commands\": null,\r\n    \"points\": null,\r\n    \"adress\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/client",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Entreprise",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n    \"email\": \"try1\",\r\n    \"password\": null,\r\n    \"phone\": null,\r\n    \"role\": \"entreprise\",\r\n    \"logo\": null,\r\n    \"name\": \"EXIST\",\r\n    \"adress\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/entreprise",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterEntreprise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n    \"email\": \"entreprise1@niw.com\",\r\n    \"password\": \"entreprise1\",\r\n    \"phone\":  \"21212121\",\r\n    \"role\": \"entreprise\",\r\n    \"name\": \"entreprise1\",\r\n    \"adress\": \"3 rue\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/entreprise/register/category/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise",
+								"register",
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZXByaXNlMUBuaXcuY29tIiwiZXhwIjoxNjE5NzMwNDM1LCJyb2xlcyI6ImVudHJlcHJpc2UiLCJVc2VyX0lkIjoyfQ.7KKEPBadFnpevKDVwmy5sxtNe3eznMpRrJvda1x0iII",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/entreprise",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/entreprise/4",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/entreprise/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"email\": null,\r\n    \"password\": null,\r\n    \"phone\": null,\r\n    \"role\": \"entreprise\",\r\n    \"logo\": null,\r\n    \"category\": null,\r\n    \"publicities\": null,\r\n    \"products\": null,\r\n    \"requests\": null,\r\n    \"name\": \"HA\",\r\n    \"adress\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/entreprise",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"entreprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EntrepriseUploadPhoto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/hamza_bramli/Downloads/106448940_3510783215599764_6186571515195823862_n.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/uploadimage/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"uploadimage",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAbml3LmNvbSIsImV4cCI6MTYxOTc0MDM1Mywicm9sZXMiOiJhZG1pbiIsIlVzZXJfSWQiOjF9.7IVtPw9QK9tykuJ07mwjeIw2kKnG0NwF1admthl08MU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Clothses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/category",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/category",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/category/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/category/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"IT\",\r\n    \"entreprises\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/category",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Command",
+			"item": [
+				{
+					"name": "saveCommandProductClient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3MzE3MzUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.yJ8_zsGbP-RagfQYebyzU7fgjbjMDNJZ2zulpBRgteY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command/client/3/product/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"client",
+								"3",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3MzE3MzUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.yJ8_zsGbP-RagfQYebyzU7fgjbjMDNJZ2zulpBRgteY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"client\": null,\r\n        \"product\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command/confirm/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"confirm",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"client\": null,\r\n        \"product\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command/confirm/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"confirm",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Point",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/point",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"point"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AffectPointClientPublicity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MjA3Njk3MTAsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.fUcmmQJbzlNnK-0EcaUVGWupJyNM76flgflsvoASenE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/point/client/3/publicity/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"point",
+								"client",
+								"3",
+								"publicity",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/point",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"point"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"client\": null,\r\n        \"product\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "AddProductEntreprise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZXByaXNlMUBuaXcuY29tIiwiZXhwIjoxNjE5NzQ0MDY0LCJyb2xlcyI6ImVudHJlcHJpc2UiLCJVc2VyX0lkIjoyfQ.6EOx75VlkWOg4P8jFFFcvbULtAgHAVUuFzR3cE-SRjI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"pull\",\r\n   \"price\":87000,\r\n   \"description\":\"pull pour homme\",\r\n   \"discountPriceperPoints\": 10000.0 ,\r\n   \"discountPoints\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/product/entreprise/2",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"product",
+								"entreprise",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddProductEntreprise Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZXByaXNlM0BuaXcuY29tIiwiZXhwIjoxNjIwNzc4MzA4LCJyb2xlcyI6ImVudHJlcHJpc2UiLCJVc2VyX0lkIjoyfQ.PVy8EKsN1ZSro3L_w5IAjgS9F8EVfFaBtzxfS2eA5qA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/hamza_bramli/Pictures/tiki wiki/chat questionnaire.PNG"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/uploadproductimage/4",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"uploadproductimage",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3NDYyNTUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.nnv2_gIANVMBkf-EGJhdSEY3ne1aTBYm23iMlhMPQT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/product",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"client\": null,\r\n        \"product\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Publicity",
+			"item": [
+				{
+					"name": "savePublicityEntreprise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZXByaXNlMUBuaXcuY29tIiwiZXhwIjoxNjE5NzMwNDM1LCJyb2xlcyI6ImVudHJlcHJpc2UiLCJVc2VyX0lkIjoyfQ.7KKEPBadFnpevKDVwmy5sxtNe3eznMpRrJvda1x0iII",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"pub1\",\r\n  \"description\":\"pub1\",\r\n  \"pointToEarn\": 5000 ,\r\n  \"videoLink\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/publicity/entreprise/2",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"publicity",
+								"entreprise",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3MzE3MzUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.yJ8_zsGbP-RagfQYebyzU7fgjbjMDNJZ2zulpBRgteY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/publicity",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"publicity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"client\": null,\r\n        \"product\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/command",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicityUploadVideo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/hamza_bramli/Videos/karasna.mp4"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/uploadpublicity/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"uploadpublicity",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Request",
+			"item": [
+				{
+					"name": "AddRequestEntreprise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbnRyZXByaXNlMUBuaXcuY29tIiwiZXhwIjoxNjE5NzQ1NTIxLCJyb2xlcyI6ImVudHJlcHJpc2UiLCJVc2VyX0lkIjoyfQ.vidrkBTY5UKCk0v0CRipkcccGumTpD7bPQv0Ahi9WUs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"email\": \"exist@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"21212121\",\r\n    \"role\": \"entreprise\",\r\n    \"imageLink\": \"null\",\r\n    \"name\": \"EXIST\",\r\n    \"adress\": \"3 rue\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/request/entreprise/2",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"request",
+								"entreprise",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/request",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/request/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"request",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/command/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"command",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnQxQG5pdy5jb20iLCJleHAiOjE2MTk3NDYyNTUsInJvbGVzIjoiY2xpZW50IiwiVXNlcl9JZCI6M30.nnv2_gIANVMBkf-EGJhdSEY3ne1aTBYm23iMlhMPQT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/request/validate/3",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"request",
+								"validate",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "LoginClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"client1@niw.com\",\r\n    \"password\":\"client1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"exist@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginEntreprise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"entreprise1@niw.com\",\r\n    \"password\":\"entreprise1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "127.0.0.1:8080"
+		}
+	]
+}
